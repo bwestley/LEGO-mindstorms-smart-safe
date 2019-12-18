@@ -1,0 +1,249 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "mindstorms smart safe",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "OpenIntent",
+                    "slots": [
+                        {
+                            "name": "pass",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "samples": [
+                                "{pass}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "open",
+                        "open safe",
+                        "safe open"
+                    ]
+                },
+                {
+                    "name": "CloseIntent",
+                    "slots": [],
+                    "samples": [
+                        "close",
+                        "close safe",
+                        "safe close"
+                    ]
+                },
+                {
+                    "name": "HistoryIntent",
+                    "slots": [
+                        {
+                            "name": "count",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "history {count} ",
+                        "last opened",
+                        "list the last {count} my safe was opened",
+                        "when was it last opened",
+                        "list the last {count} times it was opened"
+                    ]
+                },
+                {
+                    "name": "ChangePasswordIntent",
+                    "slots": [
+                        {
+                            "name": "oldpass",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "samples": [
+                                "{oldpass} "
+                            ]
+                        },
+                        {
+                            "name": "newpass",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "samples": [
+                                "{newpass} "
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "change password",
+                        "change my password",
+                        "change my password from {oldpass} to {newpass}",
+                        "change password from {oldpass} to {newpass}"
+                    ]
+                },
+                {
+                    "name": "SpeechIntent",
+                    "slots": [
+                        {
+                            "name": "text",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "speek {text}",
+                        "say {text}"
+                    ]
+                },
+                {
+                    "name": "ControlIntent",
+                    "slots": [
+                        {
+                            "name": "pass",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "samples": [
+                                "{pass}"
+                            ]
+                        },
+                        {
+                            "name": "type",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{type}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "control",
+                        "verb {type} auth {pass}",
+                        "control verb {type} auth {pass}"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "OpenIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "pass",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.188616721469.815116794825"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ChangePasswordIntent",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "oldpass",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.140534317865.1016937080842"
+                            }
+                        },
+                        {
+                            "name": "newpass",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.140534317865.612212606578"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ControlIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "pass",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1166105785979.458889392582"
+                            }
+                        },
+                        {
+                            "name": "type",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1166105785979.806053965702"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.188616721469.815116794825",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Enter password."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.140534317865.1016937080842",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Enter old password"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.140534317865.612212606578",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Enter new password"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1166105785979.458889392582",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Enter password"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1166105785979.806053965702",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Enter verb"
+                    }
+                ]
+            }
+        ]
+    }
+}
